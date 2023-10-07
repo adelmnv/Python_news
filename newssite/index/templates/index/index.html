@@ -1,0 +1,22 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="main__title">{{ title }}</h1>
+        <div class="news__row">
+            {% for article in news %}
+            <div class="news__card">
+                <div class="news__header">
+                    <p class="news__date">{{ article.date.date }}</p>
+                    <div class="news__author">
+                        {{article.author}}
+                    </div>
+                </div>
+                <p class="news__time">{{ article.date.time }}</p>
+                <h2 class="news__title">{{ article.title }}</h2>
+                <p class="news__content">{{ article.content|linebreaksbr}} </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
